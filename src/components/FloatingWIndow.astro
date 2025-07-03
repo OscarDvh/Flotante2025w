@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+---
+
+<div class="p-10 "
+>
+  <!-- Imagen que abre la ventana -->
+  <img
+    id="open-modal"
+    class="h-10 cursor-pointer ml-5"
+    src="/img/mmsys.cpl_14_4361.ico"
+    alt="Abrir ventana"
+  />
+          <p class="p-2 text-white text-shadow-lg/30 ">Flotante.exe</p>
+
+  <!-- Ventana flotante oculta -->
+  <div class="window hidden fixed top-32 left-1/2 transform -translate-x-1/2 z-50" style="width: 500px" id="floating-modal">
+    <div class="title-bar">
+      <div class="title-bar-text">Flotante.exe</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button id="close-modal" aria-label="Close"></button> 
+      </div>
+    </div>
+    <div class="window-body">
+      <p>Muy Pronto!</p>
+      <div class="pt-2">
+        <progress ></progress>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript para abrir/cerrar la ventana -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const openBtn = document.getElementById("open-modal");
+    const closeBtn = document.getElementById("close-modal");
+    const modal = document.getElementById("floating-modal");
+
+    openBtn?.addEventListener("click", () => {
+      modal?.classList.remove("hidden");
+    });
+
+    closeBtn?.addEventListener("click", () => {
+      modal?.classList.add("hidden");
+    });
+  });
+</script>
